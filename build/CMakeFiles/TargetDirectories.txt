@@ -508,6 +508,7 @@
 /home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/esp_local_ctrl/CMakeFiles/install.dir
 /home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/esp_local_ctrl/CMakeFiles/install/local.dir
 /home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/esp_local_ctrl/CMakeFiles/install/strip.dir
+/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/esp_psram/CMakeFiles/__idf_esp_psram.dir
 /home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/esp_psram/CMakeFiles/edit_cache.dir
 /home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/esp_psram/CMakeFiles/rebuild_cache.dir
 /home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/esp_psram/CMakeFiles/list_install_components.dir

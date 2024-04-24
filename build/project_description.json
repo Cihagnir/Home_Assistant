@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "main",
-    "project_version":    "1",
+    "project_version":    "018a6bd-dirty",
     "project_path":       "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project",
     "idf_path":           "/home/cihangir/esp/v5.0.5/esp-idf",
     "build_dir":          "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build",
@@ -482,14 +482,14 @@
             "target": "___idf_esp_psram",
             "prefix": "idf",
             "dir": "/home/cihangir/esp/v5.0.5/esp-idf/components/esp_psram",
-            "type": "CONFIG_ONLY",
+            "type": "LIBRARY",
             "lib": "__idf_esp_psram",
             "reqs": [],
             "priv_reqs": [ "efuse", "heap", "spi_flash", "bootloader_support", "driver" ],
             "managed_reqs": [],
             "managed_priv_reqs": [],
-            "file": "",
-            "sources": [],
+            "file": "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/esp_psram/libesp_psram.a",
+            "sources": [ "/home/cihangir/esp/v5.0.5/esp-idf/components/esp_psram/esp_psram.c", "/home/cihangir/esp/v5.0.5/esp-idf/components/esp_psram/mmu.c", "/home/cihangir/esp/v5.0.5/esp-idf/components/esp_psram/mmu_psram_flash.c", "/home/cihangir/esp/v5.0.5/esp-idf/components/esp_psram/ext_mem_layout.c", "/home/cihangir/esp/v5.0.5/esp-idf/components/esp_psram/esp32/esp_psram_extram_cache.c", "/home/cihangir/esp/v5.0.5/esp-idf/components/esp_psram/esp32/esp_himem.c", "/home/cihangir/esp/v5.0.5/esp-idf/components/esp_psram/esp32/esp_psram_impl_quad.c" ],
             "include_dirs": [ "include" ]
         },
         "esp_ringbuf": {
@@ -759,7 +759,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build/esp-idf/main/libmain.a",
-            "sources": [ "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/main/Socket_Driver.c", "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/main/WiFi_Driver.c", "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/main/main.c" ],
+            "sources": [ "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/main/Esp_Cam_SD_Driver.c", "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/main/Socket_Driver.c", "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/main/WiFi_Driver.c", "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/main/main.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

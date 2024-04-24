@@ -15,6 +15,7 @@ static int ip_protocol_int = 0;
 static uint8_t socket_conn_try = 0;
 static int socket_status_int = 0;
 static int msg_status_int = 0;
+
 ////// 
 //      FUNCTION SECTION  
 //////

@@ -13,7 +13,14 @@
     "general_defns.h": "c",
     "esp_netif.h": "c",
     "esp_wifi.h": "c",
-    "esp_log.h": "c"
+    "esp_log.h": "c",
+    "sdmmc_defs.h": "c",
+    "esp_camera.h": "c",
+    "sdmmc_host.h": "c",
+    "esp_cam_sd_defns.h": "c",
+    "freertos.h": "c",
+    "event_groups.h": "c",
+    "esp_vfs_fat.h": "c"
   },
   "idf.flashType": "UART",
   "idf.port": "/dev/ttyUSB0",

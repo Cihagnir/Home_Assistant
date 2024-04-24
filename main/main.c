@@ -6,10 +6,16 @@
 // Hand Made Libraries Section
 #include "WiFi_Defns.h"
 #include "Socket_Defns.h"
+#include "Esp_Cam_SD_Defns.h"
+#include "Esp_Cam_SD_Defns.h"
+
+
+
 ////// 
 //      PROJECT DEFINE SECTION  
 //////
 
+/*
 static char image_array[16][16][8]  = {
     {"0xfffeff" ,"0xfbfeff" ,"0xf4fbff" ,"0xfff1f8" ,"0xf3fffc" ,"0xfafaf4" ,"0xfffcfb" ,"0xf4f4ff" ,"0xfff4ff" ,"0xf8f4fa" ,"0xfffff9" ,"0xf6f8ec" ,"0xfffeff" ,"0xfff8ff" ,"0xfefcff" ,"0xf8fff8" },
     {"0xeffffb" ,"0xfff0f4" ,"0xedfdff" ,"0xfffeff" ,"0xeaffee" ,"0xf1fff9" ,"0xeffbf5" ,"0xfafef9" ,"0xfffffc" ,"0xf7faff" ,"0xfbfcff" ,"0xfdfdff" ,"0xfffcfb" ,"0xfffffc" ,"0xfffffe" ,"0xf3f9f8" },
@@ -28,9 +34,14 @@ static char image_array[16][16][8]  = {
     {"0xfdfffb" ,"0xfffff5" ,"0xfffff9" ,"0xfffeff" ,"0xf4f8f9" ,"0xf8fffc" ,"0xf9fcff" ,"0xf6f0ff" ,"0xf4f0ff" ,"0xf9feff" ,"0xf8fffc" ,"0xf2f7f8" ,"0xfffeff" ,"0xfffff9" ,"0xfcfff4" ,"0xfbfffb" },
     {"0xfffbff" ,"0xfffffc" ,"0xfffcfe" ,"0xfff8ff" ,"0xfdfbff" ,"0xfafff1" ,"0xffffee" ,"0xfffcff" ,"0xfffcff" ,"0xfafce9" ,"0xf7fff0" ,"0xfafcff" ,"0xfef7ff" ,"0xfffcfe" ,"0xfffffc" ,"0xfbfcff" }
 };
-
+*/
 
 static char *end_message = "END";
+static camera_fb_t *picture_start_pointer ;
+
+////// 
+//      MAIN LOOP  
+//////
 
 void app_main(void){
 
@@ -42,22 +53,30 @@ void app_main(void){
     }
     ESP_ERROR_CHECK(nsv_return);
     
-
-
+    // Module Init Section
     WiFi_Init_Sta();
+
+    Camera_Init();
+
+    SD_Card_Init();
 
     Socket_Connection_Hand();
 
-    Socket_Message_Sender_Hand((void*)&image_array, 2048,0);
+    picture_start_pointer = Cam_Take_Picture();
+
+    ESP_LOGE("SOCKET :", "Picture starting point %p", &picture_start_pointer->buf);
+    ESP_LOGE("SOCKET :", "Picture starting point %d", *picture_start_pointer->buf);
+    ESP_LOGE("SOCKET :", "Picture starting point %d", *picture_start_pointer->buf+1);
+    ESP_LOGE("SOCKET :", "Picture starting point %d", *picture_start_pointer->buf+2);
+    ESP_LOGE("SOCKET :", "Picture starting point %du", picture_start_pointer->len);
+
+
+    Socket_Message_Sender_Hand((void*)&picture_start_pointer->buf, picture_start_pointer->len,0);
 
     vTaskDelay(400 / portTICK_PERIOD_MS);
     
     Socket_Message_Sender_Hand(end_message, 3,0);
 
-
     // xTaskCreate(Tcp_Client_Task, "tcp_client", 4096, NULL, 5, NULL);
-
-
-
 
 }
