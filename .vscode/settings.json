@@ -1,0 +1,25 @@
+{
+  "C_Cpp.intelliSenseEngine": "default",
+  "files.associations": {
+    "protocol_examples_common.h": "c",
+    "err.h": "c",
+    "sockets.h": "c",
+    "addr_from_stdin.h": "c",
+    "system_error": "cpp",
+    "regex": "c",
+    "*.tcc": "c",
+    "esp_event.h": "c",
+    "wifi_defns.h": "c",
+    "general_defns.h": "c",
+    "esp_netif.h": "c",
+    "esp_wifi.h": "c",
+    "esp_log.h": "c"
+  },
+  "idf.flashType": "UART",
+  "idf.port": "/dev/ttyUSB0",
+  "idf.adapterTargetName": "esp32",
+  "C_Cpp.errorSquiggles": "disabled",
+  "idf.openOcdConfigs": [
+    "board/esp32-bridge.cfg"
+  ]
+}
