@@ -20,7 +20,17 @@
     "esp_cam_sd_defns.h": "c",
     "freertos.h": "c",
     "event_groups.h": "c",
-    "esp_vfs_fat.h": "c"
+    "esp_vfs_fat.h": "c",
+    "cstdio": "c",
+    "socket_defns.h": "c",
+    "atomic": "c",
+    "vector": "c",
+    "memory_resource": "c",
+    "string_view": "c",
+    "random": "c",
+    "functional": "c",
+    "type_traits": "c",
+    "tuple": "c"
   },
   "idf.flashType": "UART",
   "idf.port": "/dev/ttyUSB0",

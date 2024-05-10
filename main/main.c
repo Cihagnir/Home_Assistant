@@ -7,7 +7,6 @@
 #include "WiFi_Defns.h"
 #include "Socket_Defns.h"
 #include "Esp_Cam_SD_Defns.h"
-#include "Esp_Cam_SD_Defns.h"
 
 
 
@@ -62,20 +61,22 @@ void app_main(void){
 
     Socket_Connection_Hand();
 
-    picture_start_pointer = Cam_Take_Picture();
+    while (1){ 
+      
+      picture_start_pointer = Cam_Take_Picture();
 
-    ESP_LOGE("SOCKET :", "Picture starting point %p", &picture_start_pointer->buf);
-    ESP_LOGE("SOCKET :", "Picture starting point %d", *picture_start_pointer->buf);
-    ESP_LOGE("SOCKET :", "Picture starting point %d", *picture_start_pointer->buf+1);
-    ESP_LOGE("SOCKET :", "Picture starting point %d", *picture_start_pointer->buf+2);
-    ESP_LOGE("SOCKET :", "Picture starting point %du", picture_start_pointer->len);
+      ESP_LOGE("SOCKET :", "Picture len %d", picture_start_pointer->len);
 
+      Socket_Message_Sender_Hand(picture_start_pointer->buf, picture_start_pointer->len,0);
 
-    Socket_Message_Sender_Hand((void*)&picture_start_pointer->buf, picture_start_pointer->len,0);
+      vTaskDelay(500 / portTICK_PERIOD_MS);
 
-    vTaskDelay(400 / portTICK_PERIOD_MS);
+      esp_camera_fb_return(picture_start_pointer);
+
+      
+    }
     
-    Socket_Message_Sender_Hand(end_message, 3,0);
+
 
     // xTaskCreate(Tcp_Client_Task, "tcp_client", 4096, NULL, 5, NULL);
 

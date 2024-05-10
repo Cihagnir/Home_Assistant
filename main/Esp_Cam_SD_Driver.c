@@ -4,11 +4,12 @@
 //////
 #include <Esp_Cam_SD_Defns.h>
 
-
+uint64_t counter = 100 ;
 ////// 
 //      GLOBAL VARIABLE SECTION  
 //////
 static camera_config_t camera_config_struct = {
+
     .pin_pwdn = CAM_PIN_PWDN,
     .pin_reset = CAM_PIN_RESET,
     .pin_xclk = CAM_PIN_XCLK,
@@ -26,19 +27,24 @@ static camera_config_t camera_config_struct = {
     .pin_vsync = CAM_PIN_VSYNC,
     .pin_href = CAM_PIN_HREF,
     .pin_pclk = CAM_PIN_PCLK,
+    .fb_location = CAMERA_FB_IN_PSRAM,
 
     //XCLK 20MHz or 10MHz for OV2640 double FPS (Experimental)
     .xclk_freq_hz = 20000000,
     .ledc_timer = LEDC_TIMER_0,
     .ledc_channel = LEDC_CHANNEL_0,
 
-    .pixel_format = PIXFORMAT_JPEG, //YUV422,GRAYSCALE,RGB565,JPEG
-    .frame_size = FRAMESIZE_P_FHD,    //QQVGA-UXGA Do not use sizes above QVGA when not JPEG
 
-    .jpeg_quality = 10, //0-63 lower number means higher quality
-    .fb_count = 1       //if more than one, i2s runs in continuous mode. Use only with JPEG
+    .pixel_format   = PIXFORMAT_JPEG,
+    .frame_size     = FRAMESIZE_UXGA,
+    .jpeg_quality   = 5,
+    .fb_count       = 1,
+    .grab_mode      = CAMERA_GRAB_LATEST
+
 };
 
+
+camera_fb_t *picture_start_pointer;
 
 
 ////// 
@@ -60,6 +66,7 @@ esp_err_t Camera_Init()
     return ESP_OK;
 }
 
+
 // SD Init Function 
 void SD_Card_Init()
 {
@@ -67,7 +74,7 @@ void SD_Card_Init()
 
   esp_vfs_fat_sdmmc_mount_config_t mount_config = {
       .format_if_mount_failed = false,
-      .max_files = 5,
+      .max_files = 20,
       .allocation_unit_size = 16 * 1024
   };
   sdmmc_card_t *card;
@@ -102,18 +109,20 @@ void SD_Card_Init()
 }
 
 
-
 camera_fb_t* Cam_Take_Picture(){
 
   ESP_LOGI("Came_Take_Picture :: ", "Picture Take start ..." );
 
-  camera_fb_t *picture_start_pointer = esp_camera_fb_get();
-  uint64_t counter = 1 ;
-
-  char *picture_name_char = malloc(30 + sizeof(int64_t));
+  picture_start_pointer = esp_camera_fb_get();
+  ESP_LOGE("Came_Take_Picture :: ", "picture returned ");
+  
+  char *picture_name_char = malloc(30 + sizeof(uint64_t));
+  
   sprintf(picture_name_char, MOUNT_POINT"/pic_%lli.jpg", counter);
-  FILE *picture_file = fopen(picture_name_char, "w");
+  
+  counter++;
 
+  FILE *picture_file = fopen(picture_name_char, "w");
 
   if (picture_file != NULL){
     
@@ -126,7 +135,7 @@ camera_fb_t* Cam_Take_Picture(){
   }
 
   fclose(picture_file);
-  free(picture_start_pointer);
+
 
   return picture_start_pointer;
 }
