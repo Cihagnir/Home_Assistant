@@ -4,7 +4,7 @@
 //////
 #include <Esp_Cam_SD_Defns.h>
 
-uint64_t counter = 100 ;
+uint64_t counter = 1 ;
 ////// 
 //      GLOBAL VARIABLE SECTION  
 //////
@@ -36,7 +36,7 @@ static camera_config_t camera_config_struct = {
 
 
     .pixel_format   = PIXFORMAT_JPEG,
-    .frame_size     = FRAMESIZE_UXGA,
+    .frame_size     = FRAMESIZE_VGA,
     .jpeg_quality   = 5,
     .fb_count       = 1,
     .grab_mode      = CAMERA_GRAB_LATEST

@@ -37,6 +37,6 @@
 
 
 // Funtion Prototyp Section 
-esp_err_t Camera_Init();
 void SD_Card_Init();
+esp_err_t Camera_Init();
 camera_fb_t* Cam_Take_Picture();
