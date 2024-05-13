@@ -9,12 +9,13 @@
 //      GLOBAL VARIABLE SECTION  
 //////
 
-static char host_ip_addr_array[] = SOCKET_HOST_IP_ADDR;
+char recv_data_buffer[10] ;
+static int msg_status_int = 0;
 static int family_addr_int = 0; 
 static int ip_protocol_int = 0; 
-static uint8_t socket_conn_try = 0;
 static int socket_status_int = 0;
-static int msg_status_int = 0;
+static uint8_t socket_conn_try = 0;
+static char host_ip_addr_array[] = SOCKET_HOST_IP_ADDR;
 ////// 
 //      FUNCTION SECTION  
 //////
@@ -81,3 +82,20 @@ uint16_t Socket_Message_Sender_Hand(void *data_start_addr, size_t data_size, int
 }
 
 
+char *Socket_Message_Recv_Hand(){
+
+  int is_recv_succes = recv(socket_status_int, recv_data_buffer, sizeof(recv_data_buffer)  - 1, 0);
+
+  ESP_LOGE(SOCKET_MSG_TAG, "Recv Msg accpeted ");
+
+  if (is_recv_succes < 0) {
+    ESP_LOGE(SOCKET_MSG_TAG, "Recv msg failed: errno %d", errno);
+  }
+
+  else {
+    ESP_LOGI(SOCKET_MSG_TAG, "Received %d bytes from %s:", is_recv_succes, host_ip_addr_array);
+      
+  }
+
+  return recv_data_buffer;
+}
