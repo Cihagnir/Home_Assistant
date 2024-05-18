@@ -1,14 +1,11 @@
 /*
 
 
-Version 0.0.4
-
-
+Version 0.0.4.5
 
 Update : 
 
-> Camere Init message added 
-> " System Start " commend logic stage added 
+> Switchable System Defines Added
 
 To Do : 
 

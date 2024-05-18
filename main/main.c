@@ -15,13 +15,14 @@
 //////
 
 // static char *End_Msg = "END";
-char *Client_Init_Msg = "INIT_CAM_01";
+char *recv_data;
+//char *Client_Init_Msg = "INIT_CAM_01";
+char *Client_Init_Msg = "INIT_CAM_02";
 
-char*  recv_data;
 static bool is_client_start = false;
 static camera_fb_t *picture_start_pointer ;
 
-uint8_t Init_Msg_Lenght = 11;
+uint8_t Init_Msg_Length = 11;
 
 ////// 
 //      MAIN LOOP  
@@ -47,7 +48,7 @@ void app_main(void){
     Socket_Connection_Hand();
     
     // Init Msg Sended
-    Socket_Message_Sender_Hand(Client_Init_Msg, Init_Msg_Lenght, 0);
+    Socket_Message_Sender_Hand(Client_Init_Msg, Init_Msg_Length, 0);
 
     while (1){ 
       
@@ -59,8 +60,6 @@ void app_main(void){
       while(is_client_start) {
 
         picture_start_pointer = Cam_Take_Picture();
-
-        ESP_LOGE("SOCKET :", "Picture len %d", picture_start_pointer->len);
 
         Socket_Message_Sender_Hand(picture_start_pointer->buf, picture_start_pointer->len,0);
 
