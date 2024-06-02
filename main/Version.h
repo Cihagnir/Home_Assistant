@@ -1,13 +1,12 @@
 /*
 
-Version 0.0.2
+Version 0.0.3
 
 
 Updates : 
 
-> Version File Added 
-> Socket recv function added & bugs are fixed 
-> Code intelligibility improved
+> IO read funtion added 
+> Gas Sensor Read Logic Added  
 
 
 

@@ -6,6 +6,7 @@
 // Hand Made Libraries Section
 #include "WiFi_Defns.h"
 #include "Socket_Defns.h"
+#include "EspTask.h"
 ////// 
 //      PROJECT DEFINE SECTION  
 //////
@@ -26,16 +27,31 @@ void app_main(void){
 
     Socket_Connection_Hand();
 
-    while (true)
-    {
+    Io_Config_Init(
+      GAS_SENSOR_INPUT_IO, GPIO_MODE_INPUT, GPIO_PULLUP_DISABLE,
+      GPIO_PULLDOWN_ENABLE, GPIO_INTR_DISABLE
+    );
+
+    int gpio_read_status;
+    bool Is_already_send = false;
+
+    while (true){
       // MAIN LOOP OF THE SYSTEM
+
+      gpio_read_status = gpio_get_level(GAS_SENSOR_INPUT_IO);
+
+      if(gpio_read_status){
+        Task_Msg_Hand(GAS_LEAK_MSG);
+
+        if(! Is_already_send){
+          Socket_Message_Sender_Hand(&GAS_LEAK_MSG, TASK_MSG_LENGHT,0);
+          Is_already_send = true;
+        }
+
+      }else{
+        Is_already_send = false;
+      }
+
     }
     
-
-
-    // xTaskCreate(Tcp_Client_Task, "tcp_client", 4096, NULL, 5, NULL);
-
-
-
-
 }
