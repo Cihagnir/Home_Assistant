@@ -31,8 +31,8 @@ static camera_config_t camera_config_struct = {
 
     //XCLK 20MHz or 10MHz for OV2640 double FPS (Experimental)
     .xclk_freq_hz = 20000000,
-    .ledc_timer = LEDC_TIMER_0,
-    .ledc_channel = LEDC_CHANNEL_0,
+    // .ledc_timer = LEDC_TIMER_0,
+    // .ledc_channel = LEDC_CHANNEL_0,
 
 
     .pixel_format   = PIXFORMAT_JPEG,
@@ -117,7 +117,8 @@ camera_fb_t* Cam_Take_Picture(){
   ESP_LOGE("Came_Take_Picture :: ", "picture returned ");
   
   char *picture_name_char = malloc(30 + sizeof(uint64_t));
-  
+
+  /*  SD Card Save
   sprintf(picture_name_char, MOUNT_POINT"/pic_%lli.jpg", counter);
   
   counter++;
@@ -135,7 +136,7 @@ camera_fb_t* Cam_Take_Picture(){
   }
 
   fclose(picture_file);
-
+  */
 
   return picture_start_pointer;
 }

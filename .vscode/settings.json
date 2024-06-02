@@ -30,7 +30,8 @@
     "random": "c",
     "functional": "c",
     "type_traits": "c",
-    "tuple": "c"
+    "tuple": "c",
+    "soc_caps.h": "c"
   },
   "idf.flashType": "UART",
   "idf.port": "/dev/ttyUSB0",

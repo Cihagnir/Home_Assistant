@@ -43,7 +43,7 @@ void app_main(void){
 
     Camera_Init();
 
-    SD_Card_Init();
+    //SD_Card_Init();
 
     Socket_Connection_Hand();
     
