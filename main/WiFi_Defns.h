@@ -12,10 +12,10 @@
 
 
 // WiFi Defines Section
-//#define WIFI_SSID                       "Zyxel_AED1"
-//#define WIFI_PASS                       "Benimparolamsevgidir"
-#define WIFI_SSID                       "Kanuni sultan suleyman"
-#define WIFI_PASS                       "CG//1598++8951yigit"
+#define WIFI_SSID                       "Zyxel_AED1"
+#define WIFI_PASS                       "Benimparolamsevgidir"
+//#define WIFI_SSID                       "Kanuni sultan suleyman"
+//#define WIFI_PASS                       "CG//1598++8951yigit"
 // #define WIFI_SSID                       "Cihangir"
 // #define WIFI_PASS                       "Cg//1345"
 #define WIFI_MAX_RETRY                  5   

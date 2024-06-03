@@ -17,7 +17,9 @@
 // static char *End_Msg = "END";
 char *recv_data;
 //char *Client_Init_Msg = "INIT_CAM_01";
-char *Client_Init_Msg = "INIT_CAM_02";
+//char *Client_Init_Msg = "INIT_CAM_02";
+char *Client_Init_Msg = "INIT_CAM_03";
+
 
 static bool is_client_start = false;
 static camera_fb_t *picture_start_pointer ;
