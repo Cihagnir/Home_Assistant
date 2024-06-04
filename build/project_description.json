@@ -1,7 +1,7 @@
 {
     "version":            "1",
     "project_name":       "main",
-    "project_version":    "aae4542-dirty",
+    "project_version":    "5509c40-dirty",
     "project_path":       "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project",
     "idf_path":           "/home/cihangir/esp/v5.0.5/esp-idf",
     "build_dir":          "/home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/build",

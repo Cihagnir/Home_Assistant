@@ -37,7 +37,8 @@ void app_main(void){
     );
 
     int gpio_read_status;
-    bool Is_already_send = false;
+    bool Is_high_already_send = false;
+    bool Is_low_already_send = false;
 
     while (true){
       // MAIN LOOP OF THE SYSTEM
@@ -47,15 +48,22 @@ void app_main(void){
 
       if(!gpio_read_status){
 
-        if(! Is_already_send){
+        if(! Is_high_already_send){
           ESP_LOGI("GAS SENSOR", "FUCKINK LEAK");
           Socket_Message_Sender_Hand(&"1", TASK_MSG_LENGHT,0);
-          Is_already_send = true;
+          Is_high_already_send = true;
+          Is_low_already_send = false;
         }
 
       }else{
-        Socket_Message_Sender_Hand(&"0", TASK_MSG_LENGHT,0);
-        Is_already_send = false;
+        
+        if (!Is_low_already_send)
+        {
+          Socket_Message_Sender_Hand(&"0", TASK_MSG_LENGHT,0);
+          Is_high_already_send = false;
+          Is_low_already_send = true;
+        }
+        
       }
 
     }
