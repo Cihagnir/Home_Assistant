@@ -86,7 +86,7 @@ char *Socket_Message_Recv_Hand(){
 
   int is_recv_succes = recv(socket_status_int, recv_data_buffer, sizeof(recv_data_buffer)  - 1, 0);
 
-  ESP_LOGE(SOCKET_MSG_TAG, "Recv Msg accpeted ");
+  ESP_LOGE(SOCKET_MSG_TAG, "Recv Msg accepted ");
 
   if (is_recv_succes < 0) {
     ESP_LOGE(SOCKET_MSG_TAG, "Recv msg failed: errno %d", errno);

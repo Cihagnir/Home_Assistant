@@ -1,2 +1,2 @@
-idf_component_register(SRCS "Socket_Driver.c" "WiFi_Driver.c" "main.c"
+idf_component_register(SRCS "WiFi_Driver.c" "Socket_Driver.c" "alarm.c" "main.c"
                     INCLUDE_DIRS ".")

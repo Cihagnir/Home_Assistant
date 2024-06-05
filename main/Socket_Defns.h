@@ -11,7 +11,7 @@
 
 
 // Socket Defines Section
-#define SOCKET_HOST_IP_ADDR             "192.168.1.97"   
+#define SOCKET_HOST_IP_ADDR             "192.168.39.42"   
 #define SOCKET_HOST_PORT                120
 #define SOCKET_CONN_MAX_RETRY           5
 

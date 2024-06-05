@@ -8,6 +8,5 @@ include($ENV{IDF_PATH}/tools/cmake/project.cmake)
 list(APPEND EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_examples_common)
 list(APPEND EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/examples/common_components/protocol_examples_common/include)
 list(APPEND EXTRA_COMPONENT_DIRS $ENV{IDF_PATH}/components/lwip/lwip/src/include/lwip)
-list(APPEND EXTRA_COMPONENT_DIRS /home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/Project_Code/sample_project/main)
-
-project(main)
+list(APPEND EXTRA_COMPONENT_DIRS /home/cihangir/Desktop/Software_Project/Capstone_Project/Embedded_Section/Code_section/ESP32_VS_Code/alarm2/main)
+project(alarm2)
